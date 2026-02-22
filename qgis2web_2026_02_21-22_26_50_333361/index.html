@@ -149,7 +149,7 @@
         function pop_Walking_DataLocations_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Photo'] !== null ? '<img src="images/' + String(feature.properties['Photo']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                      <td colspan="2">' + (feature.properties['Photo'] !== null ? '<img src="' + feature.properties['Photo'] + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -186,7 +186,7 @@
             iconUrl: 'markers/Walking_DataLocations_2.svg',
             iconSize: [38.0, 38.0]
         }),
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_Walking_DataLocations_2');
@@ -194,7 +194,7 @@
         map.getPane('pane_Walking_DataLocations_2').style['mix-blend-mode'] = 'normal';
         var layer_Walking_DataLocations_2 = new L.geoJson(json_Walking_DataLocations_2, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Walking_DataLocations_2',
             layerName: 'layer_Walking_DataLocations_2',
             pane: 'pane_Walking_DataLocations_2',
@@ -319,7 +319,7 @@
         lay.addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_Walking_DataLocations_1,
+            layer: layer_Walking_DataLocations_2,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Name'}));
